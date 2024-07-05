@@ -1,0 +1,8 @@
+{
+  "variable": {
+    "CONFIG_DIR": "%A_ScriptDir%"
+  },
+  "file": {
+    "%A_MyDocuments%/taskschd": "${CONFIG_DIR}/external"
+  }
+}
