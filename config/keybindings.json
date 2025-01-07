@@ -218,156 +218,150 @@
       }
     },
 
-    "appkeys": {
-      "qq": [
-        {
-          "mods": "${hyper.app}",
-          "key": "Q"
-        },
-        {
-          "mods": ["shift", "alt", "control"],
-          "key": "Q",
-          "launch": true
-        }
-      ],
-      "wechat": {
+    "appkeys": [
+      {
         "mods": "${hyper.app}",
-        "key": "W"
+        "key": "W",
+        "app": "wechat"
       },
-      "remote-desktop-manager": {
+      {
         "mods": "${hyper.app}",
-        "key": "R"
+        "key": "E",
+        "app": "everything"
       },
-      "everything": {
+      {
         "mods": "${hyper.app}",
-        "key": "E"
+        "key": "A",
+        "app": "terminal"
       },
-      "terminal": [
-        {
-          "mods": "${hyper.app}",
-          "key": "T"
-        },
-        {
-          "mods": ["shift", "alt", "control"],
-          "key": "T",
-          "launch": true,
-          "admin": true
-        }
-      ],
-      "devdocs": {
-        "mods": "${hyper.app}",
-        "key": "A"
-      },
-      "sublime-text": {
-        "mods": "${hyper.app}",
-        "key": "S"
-      },
-      "explorer": {
-        "mods": "${hyper.app}",
-        "key": "F"
-      },
-      "qqgame": {
-        "mods": "${hyper.app}",
-        "key": "G"
-      },
-      "google-chrome": {
+      {
         "mods": ["shift", "alt", "control"],
-        "key": "Z"
-      },
-      "edge": {
-        "mods": "${hyper.app}",
-        "key": "Z"
-      },
-      "vscode": {
-        "mods": "${hyper.app}",
-        "key": "X"
-      },
-      "geek-uninstaller": {
-        "mods": "${hyper.app}",
-        "key": "U",
+        "key": "A",
+        "app": "terminal",
+        "launch": true,
         "admin": true
       },
-      "powerpoint": {
+      {
         "mods": "${hyper.app}",
-        "key": "P"
+        "key": "S",
+        "app": "sublime-text"
       },
-      "typora": {
+      {
         "mods": "${hyper.app}",
-        "key": "K"
+        "key": "F",
+        "app": "explorer"
       },
-      "updf": {
+      {
         "mods": "${hyper.app}",
-        "key": "L"
+        "key": "G",
+        "app": "qqgame"
       },
-      "tencent-meeting": {
+      {
         "mods": "${hyper.app}",
-        "key": "M"
+        "key": "Z",
+        "app": "edge"
       },
-      "qqmusic": {
+      {
+        "mods": "${hyper.app}",
+        "key": "X",
+        "app": "vscode"
+      },
+      {
+        "mods": "${hyper.app}",
+        "key": "U",
+        "app": "updf"
+      },
+      {
+        "mods": "${hyper.app}",
+        "key": "P",
+        "app": "powerpoint"
+      },
+      {
         "mods": "${hyper.hyper}",
-        "key": "Q"
+        "key": "Q",
+        "app": "qqmusic"
       },
-      "microsoft-remote-desktop": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "R"
+        "key": "R",
+        "app": [
+          "remote-desktop-manager",
+          "remote-desktop-manager-free",
+          "microsoft-remote-desktop"
+        ]
       },
-      "termius": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "T"
+        "key": "T",
+        "app": "taskmanager"
       },
-      "wps-office": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "O"
+        "key": "U",
+        "app": "geek-uninstaller",
+        "admin": true
       },
-      "pycharm": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "P"
+        "key": "O",
+        "app": "wps-office"
       },
-      "sourcetree": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "S"
+        "key": "P",
+        "app": "pycharm"
       },
-      "taskmanager": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "H"
+        "key": "S",
+        "app": "sourcetree"
       },
-      "idea": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "J"
+        "key": "D",
+        "app": "devdocs"
       },
-      "klatexformula": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "K"
+        "key": "K",
+        "app": "klatexformula"
       },
-      "texstudio": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "L"
+        "key": "L",
+        "app": "texstudio"
       },
-      "settings": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "Z"
+        "key": "Z",
+        "app": "settings"
       },
-      "vs": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "X"
+        "key": "X",
+        "app": "vs"
       },
-      "clion": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "C"
+        "key": "C",
+        "app": "clion"
       },
-      "vnc-viewer": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "V"
+        "key": "V",
+        "app": "vnc-viewer"
       },
-      "matlab": {
+      {
         "mods": "${hyper.hyper}",
-        "key": "M"
+        "key": "M",
+        "app": "typora"
       },
-      "barrier": {
+      {
         "mods": "${hyper.daemon}",
-        "key": "B"
+        "key": "B",
+        "app": "barrier"
       }
-    },
+    ],
 
     "appCommon": {
       "quitApp": {

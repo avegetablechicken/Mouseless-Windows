@@ -126,9 +126,16 @@
   },
   "remote-desktop-manager": {
     "process": "RemoteDesktopManager",
-    "link": "Remote Desktop Manager* (RDM)",
+    "link": "Remote Desktop Manager (RDM)",
     "parallels": {
-      "link": "Remote Desktop Manager*"
+      "link": "Remote Desktop Manager"
+    }
+  },
+  "remote-desktop-manager-free": {
+    "process": "RemoteDesktopManager",
+    "link": "Remote Desktop Manager Free (RDM)",
+    "parallels": {
+      "link": "Remote Desktop Manager Free"
     }
   },
   "settings": {
@@ -174,7 +181,7 @@
     "process": "UPDF",
     "link": "UPDF",
     "parallels": {
-      "alternative": "PDF Expert",
+      "alternative": "Preview",
       "alternative_preferred": true
     }
   },

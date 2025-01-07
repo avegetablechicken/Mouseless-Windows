@@ -148,20 +148,55 @@ Class _AppKey {
   }
 
   __Call() {
-    If (this.spec.launch != 1)
-      _ActivateOrMinimize(this.app, this.spec.admin)
-    Else
-      _Launch(this.app, this.spec.admin)
+    if IsObject(this.app)
+    {
+      For idx, app in this.app
+      {
+        ret := ""
+        If (this.spec.launch != 1)
+          ret := _ActivateOrMinimize(app, this.spec.admin, True)
+        Else
+          ret := _Launch(app, this.spec.admin, True)
+        If (ret == 0)
+          Break
+      }
+    }
+    Else {
+      If (this.spec.launch != 1)
+        _ActivateOrMinimize(this.app, this.spec.admin, True)
+      Else
+        _Launch(this.app, this.spec.admin, True)
+    }
   }
 }
 
-For app, spec in keybindingConfigs.hotkeys.appkeys
+For idx, spec in keybindingConfigs.hotkeys.appkeys
 {
-  If spec.mods != ""
-    Bind(spec, New _AppKey(app, spec))
+  If IsObject(spec.app)
+  {
+    For _, app in spec.app
+    {
+      If _IsInstalled(app)
+      {
+        Bind(spec, New _AppKey(app, spec))
+        Goto, L_APPKEY_CONTINUE
+      }
+    }
+    For _, app in spec.app
+    {
+      If _IsInstalled(app, True)
+      {
+        Bind(spec, New _AppKey(app, spec))
+        Goto, L_APPKEY_CONTINUE
+      }
+    }
+    L_APPKEY_CONTINUE:
+  }
   Else
-    For _, entry in spec
-      Bind(entry, New _AppKey(app, entry))
+  {
+    If _IsInstalled(spec.app, True)
+      Bind(spec, New _AppKey(spec.app, spec))
+  }
 }
 
 Bind(keybindingConfigs.hotkeys.global["toggleTaskbarOrMyDock"], "ToggleTaskbarOrMyDock")
@@ -383,15 +418,16 @@ _GetLnkFullPath(dir, pattern, ext := ".lnk")
   }
 }
 
-_Launch(app, admin := False)
+_GetLaunchCMD(app, enable_vm := False)
 {
   Global appJsonObj
-  cmd_run := ""
+  If (appJsonObj[app] == "")
+    Return
 
   If appJsonObj[app].run            ; shortcut or absolute path
-    cmd_run := appJsonObj[app].run
+    Return appJsonObj[app].run
   Else If appJsonObj[app].url       ; url
-    cmd_run := appJsonObj[app].url
+    Return appJsonObj[app].url
   Else                              ; relative path of a link in start menu
   {
     appLnkSearchDirs := [
@@ -401,18 +437,18 @@ _Launch(app, admin := False)
       A_Programs "\Scoop Apps",
       A_ProgramsCommon
     )]
-    appLnkSearchDir_Parallels := A_Programs "\Parallels Shared Applications"
 
     For _, dir In appLnkSearchDirs
     {
       link := _GetLnkFullPath(dir, appJsonObj[app].link)
       If (link != "")
       {
-        cmd_run := link
-        Goto L_Launch
+        Return link
       }
     }
-    If FileExist(appLnkSearchDir_Parallels)
+
+    appLnkSearchDir_Parallels := A_Programs "\Parallels Shared Applications"
+    If enable_vm And FileExist(appLnkSearchDir_Parallels)
     {
       lnk_suffix := " (Mac).lnk"
       If appJsonObj[app].parallels.alternative_preferred And appJsonObj[app].parallels.alternative != ""
@@ -420,8 +456,7 @@ _Launch(app, admin := False)
         link := _GetLnkFullPath(appLnkSearchDir_Parallels, appJsonObj[app].parallels.alternative, lnk_suffix)
         If (link != "")
         {
-          cmd_run := link
-          Goto L_Launch
+          Return link
         }
       }
       If appJsonObj[app].parallels.link != ""
@@ -429,8 +464,7 @@ _Launch(app, admin := False)
         link := _GetLnkFullPath(appLnkSearchDir_Parallels, appJsonObj[app].parallels.link, lnk_suffix)
         If (link != "")
         {
-          cmd_run := link
-          Goto L_Launch
+          Return link
         }
       }
       If appJsonObj[app].parallels.alternative != "" And Not appJsonObj[app].parallels.alternative_preferred
@@ -438,8 +472,7 @@ _Launch(app, admin := False)
         link := _GetLnkFullPath(appLnkSearchDir_Parallels, appJsonObj[app].parallels.alternative, lnk_suffix)
         If (link != "")
         {
-          cmd_run := link
-          Goto L_Launch
+          Return link
         }
       }
       If Not IsObject(appJsonObj[app].link)
@@ -463,16 +496,18 @@ _Launch(app, admin := False)
       link := _GetLnkFullPath(appLnkSearchDir_Parallels, pattern, lnk_suffix)
       If (link != "")
       {
-        cmd_run := link
-        Goto L_Launch
+        Return link
       }
     }
   }
+}
 
-  If Not cmd_run
-    Return 1
+_Launch(app, admin := False, enable_vm := False)
+{
+  cmd_run := _GetLaunchCMD(app, enable_vm)
+  If (cmd_run == "")
+      Return 1
 
-L_Launch:
   If (admin)
     Run % cmd_run
   Else
@@ -481,11 +516,17 @@ L_Launch:
   Return 0
 }
 
+_IsInstalled(app, enable_vm := False)
+{
+  Return _GetLaunchCMD(app, enable_vm) != ""
+}
+
 ; launch (if not launched), focus (if not focused) or minimize (if focused)
-_ActivateOrMinimize(app, admin := False)
+_ActivateOrMinimize(app, admin := False, enable_vm := False)
 {
   If _ShowOrMinimize(app) == -1
-    _Launch(app, admin)
+    Return _Launch(app, admin, enable_vm)
+  Return 0
 }
 
 _IsActive(app)
