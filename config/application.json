@@ -77,7 +77,7 @@
   },
   "monocloud": {
     "process": "MonoCloud_V*",
-    "link": "Monocloud"
+    "link": "MonoCloud"
   },
   "mydockfinder": {
     "process": "Dockmod",
