@@ -244,7 +244,10 @@
       {
         "mods": "${hyper.app}",
         "key": "S",
-        "app": "sublime-text"
+        "app": [
+          "sublime-text",
+          "notepad"
+        ]
       },
       {
         "mods": "${hyper.app}",
@@ -268,12 +271,12 @@
       },
       {
         "mods": "${hyper.app}",
-        "key": "U",
+        "key": "P",
         "app": "updf"
       },
       {
         "mods": "${hyper.app}",
-        "key": "P",
+        "key": "K",
         "app": "powerpoint"
       },
       {
@@ -293,7 +296,7 @@
       {
         "mods": "${hyper.hyper}",
         "key": "T",
-        "app": "taskmanager"
+        "app": "texstudio"
       },
       {
         "mods": "${hyper.hyper}",
@@ -309,12 +312,12 @@
       {
         "mods": "${hyper.hyper}",
         "key": "P",
-        "app": "pycharm"
+        "app": "word"
       },
       {
         "mods": "${hyper.hyper}",
-        "key": "S",
-        "app": "sourcetree"
+        "key": "A",
+        "app": "taskmanager"
       },
       {
         "mods": "${hyper.hyper}",
@@ -323,13 +326,11 @@
       },
       {
         "mods": "${hyper.hyper}",
-        "key": "K",
-        "app": "klatexformula"
-      },
-      {
-        "mods": "${hyper.hyper}",
-        "key": "L",
-        "app": "texstudio"
+        "key": "J",
+        "app": [
+          "jabref",
+          "zotero"
+        ]
       },
       {
         "mods": "${hyper.hyper}",
@@ -344,7 +345,7 @@
       {
         "mods": "${hyper.hyper}",
         "key": "C",
-        "app": "clion"
+        "app": "yuanbao"
       },
       {
         "mods": "${hyper.hyper}",

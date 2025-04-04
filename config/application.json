@@ -14,19 +14,12 @@
     "process": "DevDocs",
     "link": "DevDocs",
     "parallels": {
-      "alternative": "Dash",
-      "alternative_preferred": true
+      "alternative": "Dash"
     }
   },
   "edge": {
     "process": "msedge",
-    "link": "Microsoft Edge",
-    "parallels": {
-      "link": [
-        "Microsoft Edge",
-        "Microsoft Edge Dev"
-      ]
-    }
+    "link": "Microsoft Edge"
   },
   "everything": {
     "process": "Everything",
@@ -36,7 +29,8 @@
     "process": "EXCEL",
     "link": "Excel",
     "parallels": {
-      "link": "Microsoft Excel"
+      "link": "Microsoft Excel",
+      "alternative": "Numbers"
     }
   },
   "explorer": {
@@ -50,7 +44,11 @@
   },
   "gimp": {
     "process": "gimp-*",
-    "link": "GIMP *"
+    "link": "GIMP *",
+    "parallels": {
+      "link": "GIMP",
+      "alternative": "Pixelmator Pro"
+    }
   },
   "google-chrome": {
     "process": "chrome",
@@ -59,6 +57,10 @@
   "idea": {
     "process": "idea64",
     "link": "IntelliJ IDEA *"
+  },
+  "jabref": {
+    "process": "JabRef",
+    "link": "JabRef"
   },
   "klatexformula": {
     "process": "klatexformula",
@@ -173,6 +175,10 @@
     "process": "Termius",
     "link": "Termius"
   },
+  "texstudio": {
+    "process": "texstudio",
+    "link": "TeXstudio"
+  },
   "typora": {
     "process": "Typora",
     "link": "Typora"
@@ -214,11 +220,20 @@
     "process": "WINWORD",
     "link": "Word",
     "parallels": {
-      "link": "Microsoft Word"
+      "link": "Microsoft Word",
+      "alternative": "Pages"
     }
   },
   "wps-office": {
     "process": "wps",
     "link": "WPS Office"
+  },
+  "yuanbao": {
+    "process": "yuanbao",
+    "link": "腾讯元宝"
+  },
+  "zotero": {
+    "process": "zotero",
+    "link": "Zotero"
   }
 }
