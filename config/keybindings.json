@@ -556,6 +556,12 @@
         "key": "6"
       }
     },
+    "qqgame": {
+      "closeEnterFailDialog": {
+        "mods": [],
+        "key": "Escape"
+      }
+    },
     "qqgame:hapdk": {
       "sitDownAndShowPartnerInfo": {
         "mods": "control",

@@ -1240,9 +1240,16 @@ SixthRoom()
 }
 
 ; in qqgame
-#If _IsActive("qqgame")
+closeEnterFailDialogHK := keybindingConfigs.hotkeys["qqgame"]["closeEnterFailDialog"]
+_IsQQGameEnterFailDialog()
+{
+  WinGetPos, winX, winY, winW, win, A
+  Return (winW < 900 And winH < 300)
+}
+
+#If _IsActive("qqgame") && Not _IsQQGameEnterFailDialog()
 #If
-Hotkey, If, _IsActive("qqgame")
+Hotkey, If, _IsActive("qqgame") && Not _IsQQGameEnterFailDialog()
   Bind(closeWindowHK, "QQGameExitLastRoomOrQuitGame")
 Hotkey, If,
 
@@ -1261,6 +1268,20 @@ _GetNumberOfTabs()
 {
   WinGetText, Text, A
   Return (StrSplit(Text, "`n").MaxIndex() - 1) / 2 - 1
+}
+
+#If _IsActive("qqgame") && _IsQQGameEnterFailDialog()
+#If
+Hotkey, If, _IsActive("qqgame") && _IsQQGameEnterFailDialog()
+  Bind(closeEnterFailDialogHK, "QQGameCloseEnterFailDialog")
+Hotkey, If,
+
+QQGameCloseEnterFailDialog()
+{
+  WinClose, A
+  cnt := _GetNumberOfTabs()
+  x := 522 + (cnt - 1) * 274
+  MouseClick, Left, %x%, 222
 }
 
 Class QQGameSitDown
