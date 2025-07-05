@@ -1241,15 +1241,15 @@ SixthRoom()
 
 ; in qqgame
 closeEnterFailDialogHK := keybindingConfigs.hotkeys["qqgame"]["closeEnterFailDialog"]
-_IsQQGameEnterFailDialog()
+_IsQQGameDialog()
 {
   WinGetPos, winX, winY, winW, win, A
-  Return (winW < 900 And winH < 300)
+  Return (winW < 1200 And winH < 500)
 }
 
-#If _IsActive("qqgame") && Not _IsQQGameEnterFailDialog()
+#If _IsActive("qqgame") && Not _IsQQGameDialog()
 #If
-Hotkey, If, _IsActive("qqgame") && Not _IsQQGameEnterFailDialog()
+Hotkey, If, _IsActive("qqgame") && Not _IsQQGameDialog()
   Bind(closeWindowHK, "QQGameExitLastRoomOrQuitGame")
 Hotkey, If,
 
@@ -1270,9 +1270,9 @@ _GetNumberOfTabs()
   Return (StrSplit(Text, "`n").MaxIndex() - 1) / 2 - 1
 }
 
-#If _IsActive("qqgame") && _IsQQGameEnterFailDialog()
+#If _IsActive("qqgame") && _IsQQGameDialog()
 #If
-Hotkey, If, _IsActive("qqgame") && _IsQQGameEnterFailDialog()
+Hotkey, If, _IsActive("qqgame") && _IsQQGameDialog()
   Bind(closeEnterFailDialogHK, "QQGameCloseEnterFailDialog")
 Hotkey, If,
 
