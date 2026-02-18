@@ -16,7 +16,6 @@
 
   "hyper": {
     "hyper": "F18",
-    "app": ["alt", "control"],
     "daemon": ["shift", "alt"],
     "controlCenter": ["shift", "win"],
     "moveTo": ["alt", "control"],
@@ -121,8 +120,8 @@
         "key": "9"
       },
       "toggleMaximize": {
-        "mods": ["alt", "control"],
-        "key": "0"
+        "mods": ["win", "control"],
+        "key": "Z"
       },
       "toggleZoomToCenter": {
         "mods": ["shift", "alt", "control"],
@@ -220,69 +219,34 @@
 
     "appkeys": [
       {
-        "mods": "${hyper.app}",
+        "mods": ["alt", "control"],
         "key": "W",
-        "app": "wechat"
+        "app": "word"
       },
       {
-        "mods": "${hyper.app}",
+        "mods": ["alt", "control"],
         "key": "E",
         "app": "everything"
       },
       {
-        "mods": "${hyper.app}",
+        "mods": ["alt", "control"],
         "key": "A",
-        "app": "terminal"
+        "app": "taskmanager"
       },
       {
-        "mods": ["shift", "alt", "control"],
-        "key": "A",
-        "app": "terminal",
-        "launch": true,
-        "admin": true
-      },
-      {
-        "mods": "${hyper.app}",
-        "key": "S",
-        "app": [
-          "sublime-text",
-          "notepad"
-        ]
-      },
-      {
-        "mods": "${hyper.app}",
-        "key": "F",
-        "app": "explorer"
-      },
-      {
-        "mods": "${hyper.app}",
-        "key": "G",
-        "app": "qqgame"
-      },
-      {
-        "mods": "${hyper.app}",
-        "key": "Z",
-        "app": "edge"
-      },
-      {
-        "mods": "${hyper.app}",
+        "mods": ["alt", "control"],
         "key": "X",
         "app": "vscode"
       },
       {
-        "mods": "${hyper.app}",
-        "key": "P",
-        "app": "updf"
-      },
-      {
-        "mods": "${hyper.app}",
-        "key": "K",
-        "app": "powerpoint"
+        "mods": "${hyper.hyper}",
+        "key": ",",
+        "app": "settings"
       },
       {
         "mods": "${hyper.hyper}",
-        "key": "Q",
-        "app": "qqmusic"
+        "key": "W",
+        "app": "wechat"
       },
       {
         "mods": "${hyper.hyper}",
@@ -296,7 +260,7 @@
       {
         "mods": "${hyper.hyper}",
         "key": "T",
-        "app": "texstudio"
+        "app": "typora"
       },
       {
         "mods": "${hyper.hyper}",
@@ -312,17 +276,39 @@
       {
         "mods": "${hyper.hyper}",
         "key": "P",
-        "app": "word"
+        "app": "updf"
       },
       {
         "mods": "${hyper.hyper}",
         "key": "A",
-        "app": "taskmanager"
+        "app": "terminal"
+      },
+      {
+        "mods": ["shift", "alt", "control"],
+        "key": "A",
+        "app": "terminal",
+        "launch": true,
+        "admin": true
+      },
+      {
+        "mods": "${hyper.hyper}",
+        "key": "S",
+        "app": "edge"
       },
       {
         "mods": "${hyper.hyper}",
         "key": "D",
         "app": "devdocs"
+      },
+      {
+        "mods": "${hyper.hyper}",
+        "key": "F",
+        "app": "explorer"
+      },
+      {
+        "mods": "${hyper.hyper}",
+        "key": "G",
+        "app": "qqgame"
       },
       {
         "mods": "${hyper.hyper}",
@@ -334,8 +320,21 @@
       },
       {
         "mods": "${hyper.hyper}",
+        "key": "K",
+        "app": "powerpoint"
+      },
+      {
+        "mods": "${hyper.hyper}",
+        "key": "L",
+        "app": "texstudio"
+      },
+      {
+        "mods": "${hyper.hyper}",
         "key": "Z",
-        "app": "settings"
+        "app": [
+          "sublime-text",
+          "notepad"
+        ]
       },
       {
         "mods": "${hyper.hyper}",
@@ -355,7 +354,7 @@
       {
         "mods": "${hyper.hyper}",
         "key": "M",
-        "app": "typora"
+        "app": "qqmusic"
       },
       {
         "mods": "${hyper.daemon}",

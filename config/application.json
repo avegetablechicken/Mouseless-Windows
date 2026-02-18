@@ -177,7 +177,10 @@
   },
   "texstudio": {
     "process": "texstudio",
-    "link": "TeXstudio"
+    "link": "TeXstudio",
+    "parallels": {
+      "alternative": "Texifier"
+    }
   },
   "typora": {
     "process": "Typora",
@@ -230,7 +233,10 @@
   },
   "yuanbao": {
     "process": "yuanbao",
-    "link": "腾讯元宝"
+    "link": "腾讯元宝",
+    "parallels": {
+      "alternative": "ChatGPT"
+    }
   },
   "zotero": {
     "process": "zotero",
